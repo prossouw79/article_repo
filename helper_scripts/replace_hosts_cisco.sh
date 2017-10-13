@@ -1,1 +1,1 @@
-sudo mv hosts_file_cisco /etc/hosts
+sudo mv hosts_cisco /etc/hosts

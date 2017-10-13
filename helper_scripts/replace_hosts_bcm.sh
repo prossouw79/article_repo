@@ -1,1 +1,1 @@
-sudo mv hosts_file_bcom /etc/hosts
+sudo mv hosts_bcom /etc/hosts
