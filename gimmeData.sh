@@ -11,6 +11,7 @@ test_time=${1:-10} #time to run test in seconds, default 10
 echo "Test time set to " $test_time " seconds"
 
 outfile=$target_dir"/"$distance"_"$adapter"_"$router"_"$suffix".txt"
+filename=$distance"_"$adapter"_"$router"_"$suffix".txt"
 
 iperf_tcp_args="-i $test_time -f m -R -t $test_time"
 iperf_udp_args="-u -i $test_time -f m -t $test_time"
@@ -86,5 +87,4 @@ cd iperf_parser
 mcs Program.cs
 mv Program.exe ../$target_dir
 cd ../$target_dir
-mono Program.exe $outfile
-
+mono Program.exe $filename
