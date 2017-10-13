@@ -26,7 +26,7 @@ then
 	echo "TURNING OFF BCM ADAPTERS FOR CISCO NIC TEST"
 	mpirun -f $machinefile sh ~/netSwitch/BCM_off.sh
 	mpirun -f $machinefile sh ~/netSwitch/CISCO_on.sh
-	mpirun -f $machinefile sh ~/article_repo/helper_scripts/replace_hosts_cisco.sh
+	#mpirun -f $machinefile sh ~/article_repo/helper_scripts/replace_hosts_cisco.sh
 fi
 
 if [ "$adapter" = "RPI" ]
@@ -35,7 +35,7 @@ then
 	echo "TURNING OFF CISCO ADAPTERS FOR BCM NIC TEST"
 	mpirun -f $machinefile sh ~/netSwitch/CISCO_off.sh
 	mpirun -f $machinefile sh ~/netSwitch/BCM_on.sh
-	mpirun -f $machinefile sh ~/article_repo/helper_scripts/replace_hosts_bcm.sh
+	#mpirun -f $machinefile sh ~/article_repo/helper_scripts/replace_hosts_bcm.sh
 fi
 
 #kill any existing iperf3 servers
