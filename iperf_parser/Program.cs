@@ -12,8 +12,7 @@ namespace iperf_parser
 		public static void Main (string[] args)
 		{
 			string inPath = "";
-			string mode = "";
-
+			
 			string adapter, router, distance;
 			adapter = router = distance = "-";		
 
@@ -26,14 +25,14 @@ namespace iperf_parser
 				inPath = args [0];
 			}
 			if (!File.Exists (inPath)) {
-				Console.WriteLine ("File not readable");
+                Console.WriteLine ("File not readable:\t"+inPath);
 				Environment.Exit (0);
 			} else {
 				lines_raw = File.ReadLines (inPath).ToList();
 			}
 
 			if (lines_raw.Count == 0) {
-				Console.WriteLine ("File is empty");
+                Console.WriteLine ("File is empty:\t"+ inPath);
 				Environment.Exit (0);
 			}
 				
