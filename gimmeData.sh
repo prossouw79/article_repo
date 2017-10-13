@@ -79,6 +79,12 @@ for wifi_ip_1 in $wifi_lines
 					fi
 		done
 	done
-echo "COMPLETED TCP BANDWIDTH TESTS"
 cat $outfile
-#mono iperf3_parser.exe $outfile
+
+#compile parser & run on dataset
+cd iperf_parser
+mcs Program.cs
+mv Program.exe ../$target_dir
+cd ../$target_dir
+mono Program.exe $outfile
+
