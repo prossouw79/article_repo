@@ -1,0 +1,721 @@
+#TCP TESTS
+#;1;TCP iperf bandwidth;192.168.0.201;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 46044 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  1.38 MBytes  11.5 Mbits/sec
+[ 10]  1.0- 2.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  2.0- 3.0 sec  1.38 MBytes  11.5 Mbits/sec
+[ 10]  3.0- 4.0 sec  1.00 MBytes  8.39 Mbits/sec
+[ 10]  4.0- 5.0 sec  1.00 MBytes  8.39 Mbits/sec
+[ 10]  5.0- 6.0 sec  1.12 MBytes  9.44 Mbits/sec
+[ 10]  6.0- 7.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  7.0- 8.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  8.0- 9.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  9.0-10.0 sec  1.12 MBytes  9.44 Mbits/sec
+[ 10] 10.0-11.0 sec  1.00 MBytes  8.39 Mbits/sec
+[ 10] 11.0-12.0 sec  0.62 MBytes  5.24 Mbits/sec
+[ 10] 12.0-13.0 sec  1.12 MBytes  9.44 Mbits/sec
+[ 10] 13.0-14.0 sec  0.62 MBytes  5.24 Mbits/sec
+[ 10] 14.0-15.0 sec  0.88 MBytes  7.34 Mbits/sec
+[ 10]  0.0-15.1 sec  16.2 MBytes  9.03 Mbits/sec
+#;1;fping latency;192.168.0.201;192.168.0.202
+192.168.0.202 : [0], 84 bytes, 12.3 ms (12.3 avg, 0% loss)
+192.168.0.202 : [1], 84 bytes, 16.8 ms (14.5 avg, 0% loss)
+192.168.0.202 : [2], 84 bytes, 2.92 ms (10.6 avg, 0% loss)
+192.168.0.202 : [3], 84 bytes, 6.31 ms (9.60 avg, 0% loss)
+192.168.0.202 : [5], 84 bytes, 12.6 ms (10.2 avg, 16% loss)
+192.168.0.202 : [6], 84 bytes, 11.1 ms (10.3 avg, 14% loss)
+192.168.0.202 : [7], 84 bytes, 11.1 ms (10.4 avg, 12% loss)
+192.168.0.202 : [8], 84 bytes, 14.9 ms (11.0 avg, 11% loss)
+192.168.0.202 : [9], 84 bytes, 22.1 ms (12.2 avg, 10% loss)
+192.168.0.202 : [10], 84 bytes, 16.8 ms (12.7 avg, 9% loss)
+192.168.0.202 : [11], 84 bytes, 2.73 ms (11.8 avg, 8% loss)
+192.168.0.202 : [12], 84 bytes, 2.45 ms (11.0 avg, 7% loss)
+192.168.0.202 : [13], 84 bytes, 2.36 ms (10.3 avg, 7% loss)
+192.168.0.202 : [14], 84 bytes, 5.92 ms (10.0 avg, 6% loss)
+#;2;TCP iperf bandwidth;192.168.0.201;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 49216 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  1.12 MBytes  9.44 Mbits/sec
+[ 10]  1.0- 2.0 sec  1.38 MBytes  11.5 Mbits/sec
+[ 10]  2.0- 3.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  3.0- 4.0 sec  1.50 MBytes  12.6 Mbits/sec
+[ 10]  4.0- 5.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  5.0- 6.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10]  6.0- 7.0 sec  0.75 MBytes  6.29 Mbits/sec
+[ 10]  7.0- 8.0 sec  0.50 MBytes  4.19 Mbits/sec
+[ 10]  8.0- 9.0 sec  0.38 MBytes  3.15 Mbits/sec
+[ 10]  9.0-10.0 sec  1.00 MBytes  8.39 Mbits/sec
+[ 10] 10.0-11.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10] 11.0-12.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10] 12.0-13.0 sec  1.12 MBytes  9.44 Mbits/sec
+[ 10] 13.0-14.0 sec  1.25 MBytes  10.5 Mbits/sec
+[ 10] 14.0-15.0 sec  1.38 MBytes  11.5 Mbits/sec
+[ 10]  0.0-15.1 sec  16.6 MBytes  9.25 Mbits/sec
+#;2;fping latency;192.168.0.201;192.168.0.203
+192.168.0.203 : [0], 84 bytes, 14.8 ms (14.8 avg, 0% loss)
+192.168.0.203 : [1], 84 bytes, 1.37 ms (8.09 avg, 0% loss)
+192.168.0.203 : [2], 84 bytes, 1.41 ms (5.86 avg, 0% loss)
+192.168.0.203 : [3], 84 bytes, 1.47 ms (4.76 avg, 0% loss)
+192.168.0.203 : [4], 84 bytes, 19.8 ms (7.77 avg, 0% loss)
+192.168.0.203 : [5], 84 bytes, 1.84 ms (6.78 avg, 0% loss)
+192.168.0.203 : [6], 84 bytes, 1.90 ms (6.08 avg, 0% loss)
+192.168.0.203 : [7], 84 bytes, 4.53 ms (5.89 avg, 0% loss)
+192.168.0.203 : [8], 84 bytes, 5.28 ms (5.82 avg, 0% loss)
+192.168.0.203 : [9], 84 bytes, 1.50 ms (5.39 avg, 0% loss)
+192.168.0.203 : [10], 84 bytes, 1.42 ms (5.03 avg, 0% loss)
+192.168.0.203 : [11], 84 bytes, 1.40 ms (4.72 avg, 0% loss)
+192.168.0.203 : [12], 84 bytes, 1.45 ms (4.47 avg, 0% loss)
+192.168.0.203 : [13], 84 bytes, 1.38 ms (4.25 avg, 0% loss)
+192.168.0.203 : [14], 84 bytes, 3.14 ms (4.18 avg, 0% loss)
+#;3;TCP iperf bandwidth;192.168.0.202;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 37130 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  1.0- 2.0 sec  1.12 MBytes  9.44 Mbits/sec
+[  4]  2.0- 3.0 sec  1.25 MBytes  10.5 Mbits/sec
+[  4]  3.0- 4.0 sec  1.25 MBytes  10.5 Mbits/sec
+[  4]  4.0- 5.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  5.0- 6.0 sec  1.12 MBytes  9.44 Mbits/sec
+[  4]  6.0- 7.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4]  7.0- 8.0 sec  1.25 MBytes  10.5 Mbits/sec
+[  4]  8.0- 9.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4]  9.0-10.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4] 10.0-11.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4] 11.0-12.0 sec  0.82 MBytes  6.88 Mbits/sec
+[  4] 12.0-13.0 sec  1.62 MBytes  13.6 Mbits/sec
+[  4] 13.0-14.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4] 14.0-15.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4]  0.0-15.0 sec  21.8 MBytes  12.2 Mbits/sec
+#;3;fping latency;192.168.0.202;192.168.0.201
+192.168.0.201 : [0], 84 bytes, 6.01 ms (6.01 avg, 0% loss)
+192.168.0.201 : [1], 84 bytes, 6.34 ms (6.17 avg, 0% loss)
+192.168.0.201 : [2], 84 bytes, 7.87 ms (6.74 avg, 0% loss)
+192.168.0.201 : [3], 84 bytes, 9.63 ms (7.46 avg, 0% loss)
+192.168.0.201 : [4], 84 bytes, 1.41 ms (6.25 avg, 0% loss)
+192.168.0.201 : [5], 84 bytes, 1.41 ms (5.44 avg, 0% loss)
+192.168.0.201 : [6], 84 bytes, 2.40 ms (5.01 avg, 0% loss)
+192.168.0.201 : [7], 84 bytes, 2.27 ms (4.66 avg, 0% loss)
+192.168.0.201 : [8], 84 bytes, 5.07 ms (4.71 avg, 0% loss)
+192.168.0.201 : [9], 84 bytes, 7.48 ms (4.98 avg, 0% loss)
+192.168.0.201 : [10], 84 bytes, 9.43 ms (5.39 avg, 0% loss)
+192.168.0.201 : [11], 84 bytes, 13.2 ms (6.05 avg, 0% loss)
+192.168.0.201 : [12], 84 bytes, 4.56 ms (5.93 avg, 0% loss)
+192.168.0.201 : [13], 84 bytes, 1.41 ms (5.61 avg, 0% loss)
+192.168.0.201 : [14], 84 bytes, 1.31 ms (5.32 avg, 0% loss)
+#;4;TCP iperf bandwidth;192.168.0.202;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 44204 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  1.0- 2.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4]  2.0- 3.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  3.0- 4.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  4.0- 5.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  5.0- 6.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  6.0- 7.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  7.0- 8.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4]  8.0- 9.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  9.0-10.0 sec  2.38 MBytes  19.9 Mbits/sec
+[  4] 10.0-11.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4] 11.0-12.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4] 12.0-13.0 sec  2.25 MBytes  18.9 Mbits/sec
+[  4] 13.0-14.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4] 14.0-15.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4]  0.0-15.0 sec  31.1 MBytes  17.4 Mbits/sec
+#;4;fping latency;192.168.0.202;192.168.0.203
+192.168.0.203 : [0], 84 bytes, 1.24 ms (1.24 avg, 0% loss)
+192.168.0.203 : [1], 84 bytes, 1.44 ms (1.34 avg, 0% loss)
+192.168.0.203 : [2], 84 bytes, 1.37 ms (1.35 avg, 0% loss)
+192.168.0.203 : [3], 84 bytes, 2.51 ms (1.64 avg, 0% loss)
+192.168.0.203 : [4], 84 bytes, 2.80 ms (1.87 avg, 0% loss)
+192.168.0.203 : [5], 84 bytes, 2.12 ms (1.91 avg, 0% loss)
+192.168.0.203 : [6], 84 bytes, 3.62 ms (2.15 avg, 0% loss)
+192.168.0.203 : [7], 84 bytes, 7.28 ms (2.79 avg, 0% loss)
+192.168.0.203 : [8], 84 bytes, 2.77 ms (2.79 avg, 0% loss)
+192.168.0.203 : [9], 84 bytes, 1.82 ms (2.69 avg, 0% loss)
+192.168.0.203 : [10], 84 bytes, 1.42 ms (2.58 avg, 0% loss)
+192.168.0.203 : [11], 84 bytes, 2.19 ms (2.54 avg, 0% loss)
+192.168.0.203 : [12], 84 bytes, 2.55 ms (2.54 avg, 0% loss)
+192.168.0.203 : [13], 84 bytes, 4.98 ms (2.72 avg, 0% loss)
+192.168.0.203 : [14], 84 bytes, 7.75 ms (3.05 avg, 0% loss)
+#;5;TCP iperf bandwidth;192.168.0.203;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 48342 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  1.0- 2.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  2.0- 3.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  3.0- 4.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  4.0- 5.0 sec  1.75 MBytes  14.7 Mbits/sec
+[  4]  5.0- 6.0 sec  2.12 MBytes  17.8 Mbits/sec
+[  4]  6.0- 7.0 sec  1.62 MBytes  13.6 Mbits/sec
+[  4]  7.0- 8.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4]  8.0- 9.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4]  9.0-10.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4] 10.0-11.0 sec  2.00 MBytes  16.8 Mbits/sec
+[  4] 11.0-12.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4] 12.0-13.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4] 13.0-14.0 sec  1.62 MBytes  13.6 Mbits/sec
+[  4] 14.0-15.0 sec  1.88 MBytes  15.7 Mbits/sec
+[  4]  0.0-15.2 sec  27.2 MBytes  15.1 Mbits/sec
+#;5;fping latency;192.168.0.203;192.168.0.201
+192.168.0.201 : [0], 84 bytes, 8.08 ms (8.08 avg, 0% loss)
+192.168.0.201 : [1], 84 bytes, 27.1 ms (17.5 avg, 0% loss)
+192.168.0.201 : [2], 84 bytes, 1.44 ms (12.2 avg, 0% loss)
+192.168.0.201 : [3], 84 bytes, 1.54 ms (9.54 avg, 0% loss)
+192.168.0.201 : [4], 84 bytes, 1.44 ms (7.92 avg, 0% loss)
+192.168.0.201 : [5], 84 bytes, 1.87 ms (6.91 avg, 0% loss)
+192.168.0.201 : [6], 84 bytes, 4.42 ms (6.55 avg, 0% loss)
+192.168.0.201 : [7], 84 bytes, 2.66 ms (6.07 avg, 0% loss)
+192.168.0.201 : [8], 84 bytes, 4.25 ms (5.86 avg, 0% loss)
+192.168.0.201 : [9], 84 bytes, 1.73 ms (5.45 avg, 0% loss)
+192.168.0.201 : [10], 84 bytes, 2.44 ms (5.18 avg, 0% loss)
+192.168.0.201 : [11], 84 bytes, 1.36 ms (4.86 avg, 0% loss)
+192.168.0.201 : [12], 84 bytes, 2.09 ms (4.64 avg, 0% loss)
+192.168.0.201 : [13], 84 bytes, 1.43 ms (4.41 avg, 0% loss)
+192.168.0.201 : [14], 84 bytes, 3.23 ms (4.33 avg, 0% loss)
+#;6;TCP iperf bandwidth;192.168.0.203;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, TCP port 5001
+TCP window size: 0.04 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 42836 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  1.25 MBytes  10.5 Mbits/sec
+[  4]  1.0- 2.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  2.0- 3.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4]  3.0- 4.0 sec  1.62 MBytes  13.6 Mbits/sec
+[  4]  4.0- 5.0 sec  0.88 MBytes  7.34 Mbits/sec
+[  4]  5.0- 6.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  6.0- 7.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4]  7.0- 8.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4]  8.0- 9.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  9.0-10.0 sec  1.25 MBytes  10.5 Mbits/sec
+[  4] 10.0-11.0 sec  1.38 MBytes  11.5 Mbits/sec
+[  4] 11.0-12.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4] 12.0-13.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4] 13.0-14.0 sec  1.62 MBytes  13.6 Mbits/sec
+[  4] 14.0-15.0 sec  1.50 MBytes  12.6 Mbits/sec
+[  4]  0.0-15.0 sec  21.1 MBytes  11.8 Mbits/sec
+#;6;fping latency;192.168.0.203;192.168.0.202
+192.168.0.202 : [0], 84 bytes, 1.22 ms (1.22 avg, 0% loss)
+192.168.0.202 : [1], 84 bytes, 1.52 ms (1.37 avg, 0% loss)
+192.168.0.202 : [2], 84 bytes, 1.37 ms (1.37 avg, 0% loss)
+192.168.0.202 : [3], 84 bytes, 1.48 ms (1.39 avg, 0% loss)
+192.168.0.202 : [4], 84 bytes, 2.20 ms (1.55 avg, 0% loss)
+192.168.0.202 : [5], 84 bytes, 5.41 ms (2.20 avg, 0% loss)
+192.168.0.202 : [6], 84 bytes, 6.58 ms (2.82 avg, 0% loss)
+192.168.0.202 : [7], 84 bytes, 4.99 ms (3.09 avg, 0% loss)
+192.168.0.202 : [8], 84 bytes, 1.45 ms (2.91 avg, 0% loss)
+192.168.0.202 : [9], 84 bytes, 1.43 ms (2.76 avg, 0% loss)
+192.168.0.202 : [10], 84 bytes, 1.38 ms (2.63 avg, 0% loss)
+192.168.0.202 : [11], 84 bytes, 1.36 ms (2.53 avg, 0% loss)
+192.168.0.202 : [12], 84 bytes, 1.45 ms (2.44 avg, 0% loss)
+192.168.0.202 : [13], 84 bytes, 2.08 ms (2.42 avg, 0% loss)
+192.168.0.202 : [14], 84 bytes, 3.18 ms (2.47 avg, 0% loss)
+#UDP TESTS
+#;7;UDP iperf;54.0M;192.168.0.201;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 38860 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  3.38 MBytes  28.3 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.59 MBytes  30.1 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.77 MBytes  31.7 Mbits/sec
+[ 10]  3.0- 4.0 sec  4.28 MBytes  35.9 Mbits/sec
+[ 10]  4.0- 5.0 sec  4.12 MBytes  34.6 Mbits/sec
+[ 10]  5.0- 6.0 sec  3.96 MBytes  33.2 Mbits/sec
+[ 10]  6.0- 7.0 sec  3.93 MBytes  33.0 Mbits/sec
+[ 10]  7.0- 8.0 sec  4.13 MBytes  34.6 Mbits/sec
+[ 10]  8.0- 9.0 sec  4.03 MBytes  33.8 Mbits/sec
+[ 10]  9.0-10.0 sec  3.79 MBytes  31.8 Mbits/sec
+[ 10] 10.0-11.0 sec  3.75 MBytes  31.5 Mbits/sec
+[ 10] 11.0-12.0 sec  3.63 MBytes  30.4 Mbits/sec
+[ 10] 12.0-13.0 sec  3.88 MBytes  32.5 Mbits/sec
+[ 10] 13.0-14.0 sec  3.29 MBytes  27.6 Mbits/sec
+[ 10] 14.0-15.0 sec  3.57 MBytes  30.0 Mbits/sec
+[ 10]  0.0-15.0 sec  57.1 MBytes  31.9 Mbits/sec
+[ 10] Sent 40730 datagrams
+[ 10] Server Report:
+[ 10]  0.0-15.6 sec  17.4 MBytes  9.34 Mbits/sec   1.926 ms 28351/40731 (70%)
+#;8;UDP iperf;54.0M;192.168.0.201;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 60861 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  4.10 MBytes  34.4 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.67 MBytes  30.8 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.14 MBytes  26.3 Mbits/sec
+[ 10]  3.0- 4.0 sec  3.84 MBytes  32.2 Mbits/sec
+[ 10]  4.0- 5.0 sec  3.82 MBytes  32.1 Mbits/sec
+[ 10]  5.0- 6.0 sec  3.89 MBytes  32.7 Mbits/sec
+[ 10]  6.0- 7.0 sec  3.24 MBytes  27.2 Mbits/sec
+[ 10]  7.0- 8.0 sec  3.54 MBytes  29.7 Mbits/sec
+[ 10]  8.0- 9.0 sec  3.06 MBytes  25.6 Mbits/sec
+[ 10]  9.0-10.0 sec  3.39 MBytes  28.4 Mbits/sec
+[ 10] 10.0-11.0 sec  3.30 MBytes  27.7 Mbits/sec
+[ 10] 11.0-12.0 sec  3.42 MBytes  28.7 Mbits/sec
+[ 10] 12.0-13.0 sec  3.16 MBytes  26.5 Mbits/sec
+[ 10] 13.0-14.0 sec  3.67 MBytes  30.8 Mbits/sec
+[ 10] 14.0-15.0 sec  3.37 MBytes  28.3 Mbits/sec
+[ 10]  0.0-15.1 sec  52.6 MBytes  29.3 Mbits/sec
+[ 10] Sent 37529 datagrams
+[ 10] Server Report:
+[ 10]  0.0-15.4 sec  43.1 MBytes  23.5 Mbits/sec   3.545 ms 6819/37529 (18%)
+#;9;UDP iperf;54.0M;192.168.0.202;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 45531 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.02 MBytes  42.1 Mbits/sec
+[  4]  1.0- 2.0 sec  4.29 MBytes  36.0 Mbits/sec
+[  4]  2.0- 3.0 sec  4.64 MBytes  38.9 Mbits/sec
+[  4]  3.0- 4.0 sec  4.73 MBytes  39.7 Mbits/sec
+[  4]  4.0- 5.0 sec  4.79 MBytes  40.2 Mbits/sec
+[  4]  5.0- 6.0 sec  5.20 MBytes  43.6 Mbits/sec
+[  4]  6.0- 7.0 sec  4.98 MBytes  41.8 Mbits/sec
+[  4]  7.0- 8.0 sec  4.84 MBytes  40.6 Mbits/sec
+[  4]  8.0- 9.0 sec  5.30 MBytes  44.5 Mbits/sec
+[  4]  9.0-10.0 sec  5.69 MBytes  47.7 Mbits/sec
+[  4] 10.0-11.0 sec  5.67 MBytes  47.5 Mbits/sec
+[  4] 11.0-12.0 sec  5.53 MBytes  46.4 Mbits/sec
+[  4] 12.0-13.0 sec  5.32 MBytes  44.6 Mbits/sec
+[  4] 13.0-14.0 sec  5.36 MBytes  45.0 Mbits/sec
+[  4] 14.0-15.0 sec  5.55 MBytes  46.5 Mbits/sec
+[  4]  0.0-15.0 sec  76.9 MBytes  43.0 Mbits/sec
+[  4] Sent 54854 datagrams
+[  4] Server Report:
+[  4]  0.0-15.3 sec  38.9 MBytes  21.3 Mbits/sec   2.118 ms 27104/54856 (49%)
+#;10;UDP iperf;54.0M;192.168.0.202;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 55418 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.24 MBytes  44.0 Mbits/sec
+[  4]  1.0- 2.0 sec  5.38 MBytes  45.1 Mbits/sec
+[  4]  2.0- 3.0 sec  5.74 MBytes  48.1 Mbits/sec
+[  4]  3.0- 4.0 sec  5.32 MBytes  44.7 Mbits/sec
+[  4]  4.0- 5.0 sec  6.44 MBytes  54.1 Mbits/sec
+[  4]  5.0- 6.0 sec  5.69 MBytes  47.8 Mbits/sec
+[  4]  6.0- 7.0 sec  4.54 MBytes  38.1 Mbits/sec
+[  4]  7.0- 8.0 sec  4.47 MBytes  37.5 Mbits/sec
+[  4]  8.0- 9.0 sec  4.67 MBytes  39.2 Mbits/sec
+[  4]  9.0-10.0 sec  4.88 MBytes  40.9 Mbits/sec
+[  4] 10.0-11.0 sec  4.91 MBytes  41.2 Mbits/sec
+[  4] 11.0-12.0 sec  4.77 MBytes  40.1 Mbits/sec
+[  4] 12.0-13.0 sec  4.91 MBytes  41.2 Mbits/sec
+[  4] 13.0-14.0 sec  4.99 MBytes  41.8 Mbits/sec
+[  4] 14.0-15.0 sec  5.32 MBytes  44.7 Mbits/sec
+[  4]  0.0-15.0 sec  77.3 MBytes  43.2 Mbits/sec
+[  4] Sent 55135 datagrams
+[  4] Server Report:
+[  4]  0.0-15.3 sec  54.0 MBytes  29.5 Mbits/sec   0.641 ms 16618/55135 (30%)
+#;11;UDP iperf;54.0M;192.168.0.203;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 36170 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  4.76 MBytes  39.9 Mbits/sec
+[  4]  1.0- 2.0 sec  4.25 MBytes  35.6 Mbits/sec
+[  4]  2.0- 3.0 sec  4.62 MBytes  38.8 Mbits/sec
+[  4]  3.0- 4.0 sec  4.47 MBytes  37.5 Mbits/sec
+[  4]  4.0- 5.0 sec  5.15 MBytes  43.2 Mbits/sec
+[  4]  5.0- 6.0 sec  5.26 MBytes  44.1 Mbits/sec
+[  4]  6.0- 7.0 sec  5.01 MBytes  42.0 Mbits/sec
+[  4]  7.0- 8.0 sec  4.35 MBytes  36.5 Mbits/sec
+[  4]  8.0- 9.0 sec  4.38 MBytes  36.7 Mbits/sec
+[  4]  9.0-10.0 sec  4.87 MBytes  40.9 Mbits/sec
+[  4] 10.0-11.0 sec  5.00 MBytes  41.9 Mbits/sec
+[  4] 11.0-12.0 sec  4.98 MBytes  41.8 Mbits/sec
+[  4] 12.0-13.0 sec  5.03 MBytes  42.2 Mbits/sec
+[  4] 13.0-14.0 sec  5.35 MBytes  44.9 Mbits/sec
+[  4] 14.0-15.0 sec  5.18 MBytes  43.4 Mbits/sec
+[  4]  0.0-15.0 sec  72.6 MBytes  40.6 Mbits/sec
+[  4] Sent 51817 datagrams
+[  4] Server Report:
+[  4]  0.0-15.5 sec  38.6 MBytes  21.0 Mbits/sec   1.655 ms 24279/51817 (47%)
+#;12;UDP iperf;54.0M;192.168.0.203;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 217.78 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 46747 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.97 MBytes  50.0 Mbits/sec
+[  4]  1.0- 2.0 sec  6.26 MBytes  52.5 Mbits/sec
+[  4]  2.0- 3.0 sec  6.65 MBytes  55.8 Mbits/sec
+[  4]  3.0- 4.0 sec  5.69 MBytes  47.7 Mbits/sec
+[  4]  4.0- 5.0 sec  5.54 MBytes  46.5 Mbits/sec
+[  4]  5.0- 6.0 sec  5.62 MBytes  47.2 Mbits/sec
+[  4]  6.0- 7.0 sec  5.40 MBytes  45.3 Mbits/sec
+[  4]  7.0- 8.0 sec  5.45 MBytes  45.7 Mbits/sec
+[  4]  8.0- 9.0 sec  5.14 MBytes  43.1 Mbits/sec
+[  4]  9.0-10.0 sec  5.64 MBytes  47.3 Mbits/sec
+[  4] 10.0-11.0 sec  5.54 MBytes  46.5 Mbits/sec
+[  4] 11.0-12.0 sec  5.67 MBytes  47.5 Mbits/sec
+[  4] 12.0-13.0 sec  5.66 MBytes  47.5 Mbits/sec
+[  4] 13.0-14.0 sec  5.16 MBytes  43.3 Mbits/sec
+[  4] 14.0-15.0 sec  5.88 MBytes  49.3 Mbits/sec
+[  4]  0.0-15.0 sec  85.3 MBytes  47.7 Mbits/sec
+[  4] Sent 60818 datagrams
+[  4] Server Report:
+[  4]  0.0-15.9 sec  21.1 MBytes  11.1 Mbits/sec   2.483 ms 45756/60819 (75%)
+#;13;UDP iperf;72.0M;192.168.0.201;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 35036 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  2.50 MBytes  21.0 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.05 MBytes  25.6 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.69 MBytes  31.0 Mbits/sec
+[ 10]  3.0- 4.0 sec  3.38 MBytes  28.4 Mbits/sec
+[ 10]  4.0- 5.0 sec  3.72 MBytes  31.2 Mbits/sec
+[ 10]  5.0- 6.0 sec  3.76 MBytes  31.6 Mbits/sec
+[ 10]  6.0- 7.0 sec  3.90 MBytes  32.8 Mbits/sec
+[ 10]  7.0- 8.0 sec  4.43 MBytes  37.2 Mbits/sec
+[ 10]  8.0- 9.0 sec  3.64 MBytes  30.5 Mbits/sec
+[ 10]  9.0-10.0 sec  3.62 MBytes  30.4 Mbits/sec
+[ 10] 10.0-11.0 sec  3.27 MBytes  27.5 Mbits/sec
+[ 10] 11.0-12.0 sec  3.59 MBytes  30.2 Mbits/sec
+[ 10] 12.0-13.0 sec  4.29 MBytes  36.0 Mbits/sec
+[ 10] 13.0-14.0 sec  4.08 MBytes  34.2 Mbits/sec
+[ 10] 14.0-15.0 sec  3.87 MBytes  32.4 Mbits/sec
+[ 10]  0.0-15.0 sec  54.8 MBytes  30.6 Mbits/sec
+[ 10] Sent 39097 datagrams
+[ 10] Server Report:
+[ 10]  0.0-15.5 sec  15.9 MBytes  8.58 Mbits/sec   2.000 ms 27760/39098 (71%)
+#;14;UDP iperf;72.0M;192.168.0.201;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 54286 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  3.48 MBytes  29.2 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.42 MBytes  28.7 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.30 MBytes  27.7 Mbits/sec
+[ 10]  3.0- 4.0 sec  3.11 MBytes  26.1 Mbits/sec
+[ 10]  4.0- 5.0 sec  3.54 MBytes  29.7 Mbits/sec
+[ 10]  5.0- 6.0 sec  3.24 MBytes  27.2 Mbits/sec
+[ 10]  6.0- 7.0 sec  3.52 MBytes  29.5 Mbits/sec
+[ 10]  7.0- 8.0 sec  3.54 MBytes  29.7 Mbits/sec
+[ 10]  8.0- 9.0 sec  3.11 MBytes  26.1 Mbits/sec
+[ 10]  9.0-10.0 sec  2.88 MBytes  24.2 Mbits/sec
+[ 10] 10.0-11.0 sec  3.67 MBytes  30.8 Mbits/sec
+[ 10] 11.0-12.0 sec  3.58 MBytes  30.1 Mbits/sec
+[ 10] 12.0-13.0 sec  3.68 MBytes  30.8 Mbits/sec
+[ 10] 13.0-14.0 sec  3.11 MBytes  26.1 Mbits/sec
+[ 10] 14.0-15.0 sec  3.72 MBytes  31.2 Mbits/sec
+[ 10]  0.0-15.0 sec  50.9 MBytes  28.4 Mbits/sec
+[ 10] Sent 36309 datagrams
+[ 10] Server Report:
+[ 10]  0.0-15.3 sec  44.5 MBytes  24.4 Mbits/sec   2.420 ms 4587/36309 (13%)
+#;15;UDP iperf;72.0M;192.168.0.202;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 48371 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  6.00 MBytes  50.4 Mbits/sec
+[  4]  1.0- 2.0 sec  4.91 MBytes  41.2 Mbits/sec
+[  4]  2.0- 3.0 sec  4.78 MBytes  40.1 Mbits/sec
+[  4]  3.0- 4.0 sec  5.20 MBytes  43.6 Mbits/sec
+[  4]  4.0- 5.0 sec  5.37 MBytes  45.1 Mbits/sec
+[  4]  5.0- 6.0 sec  6.29 MBytes  52.7 Mbits/sec
+[  4]  6.0- 7.0 sec  5.90 MBytes  49.5 Mbits/sec
+[  4]  7.0- 8.0 sec  5.74 MBytes  48.1 Mbits/sec
+[  4]  8.0- 9.0 sec  5.93 MBytes  49.7 Mbits/sec
+[  4]  9.0-10.0 sec  5.17 MBytes  43.4 Mbits/sec
+[  4] 10.0-11.0 sec  4.90 MBytes  41.1 Mbits/sec
+[  4] 11.0-12.0 sec  5.43 MBytes  45.5 Mbits/sec
+[  4] 12.0-13.0 sec  5.11 MBytes  42.8 Mbits/sec
+[  4] 13.0-14.0 sec  5.48 MBytes  46.0 Mbits/sec
+[  4] 14.0-15.0 sec  5.25 MBytes  44.0 Mbits/sec
+[  4]  0.0-15.0 sec  81.5 MBytes  45.5 Mbits/sec
+[  4] Sent 58103 datagrams
+[  4] Server Report:
+[  4]  0.0-15.7 sec  30.2 MBytes  16.1 Mbits/sec   5.162 ms 36551/58106 (63%)
+#;16;UDP iperf;72.0M;192.168.0.202;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 40017 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  4.54 MBytes  38.1 Mbits/sec
+[  4]  1.0- 2.0 sec  5.08 MBytes  42.6 Mbits/sec
+[  4]  2.0- 3.0 sec  5.04 MBytes  42.3 Mbits/sec
+[  4]  3.0- 4.0 sec  6.01 MBytes  50.4 Mbits/sec
+[  4]  4.0- 5.0 sec  4.66 MBytes  39.1 Mbits/sec
+[  4]  5.0- 6.0 sec  4.95 MBytes  41.5 Mbits/sec
+[  4]  6.0- 7.0 sec  5.44 MBytes  45.6 Mbits/sec
+[  4]  7.0- 8.0 sec  4.34 MBytes  36.4 Mbits/sec
+[  4]  8.0- 9.0 sec  4.86 MBytes  40.7 Mbits/sec
+[  4]  9.0-10.0 sec  4.44 MBytes  37.2 Mbits/sec
+[  4] 10.0-11.0 sec  4.65 MBytes  39.0 Mbits/sec
+[  4] 11.0-12.0 sec  4.48 MBytes  37.6 Mbits/sec
+[  4] 12.0-13.0 sec  5.93 MBytes  49.7 Mbits/sec
+[  4] 13.0-14.0 sec  5.51 MBytes  46.2 Mbits/sec
+[  4] 14.0-15.0 sec  6.55 MBytes  54.9 Mbits/sec
+[  4]  0.0-15.0 sec  76.5 MBytes  42.7 Mbits/sec
+[  4] Sent 54544 datagrams
+[  4] Server Report:
+[  4]  0.0-15.4 sec  48.4 MBytes  26.5 Mbits/sec   1.538 ms 19984/54544 (37%)
+#;17;UDP iperf;72.0M;192.168.0.203;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 50708 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.74 MBytes  48.1 Mbits/sec
+[  4]  1.0- 2.0 sec  5.99 MBytes  50.2 Mbits/sec
+[  4]  2.0- 3.0 sec  6.08 MBytes  51.0 Mbits/sec
+[  4]  3.0- 4.0 sec  5.86 MBytes  49.2 Mbits/sec
+[  4]  4.0- 5.0 sec  4.84 MBytes  40.6 Mbits/sec
+[  4]  5.0- 6.0 sec  5.26 MBytes  44.1 Mbits/sec
+[  4]  6.0- 7.0 sec  5.48 MBytes  46.0 Mbits/sec
+[  4]  7.0- 8.0 sec  5.08 MBytes  42.6 Mbits/sec
+[  4]  8.0- 9.0 sec  4.58 MBytes  38.4 Mbits/sec
+[  4]  9.0-10.0 sec  4.98 MBytes  41.8 Mbits/sec
+[  4] 10.0-11.0 sec  5.56 MBytes  46.6 Mbits/sec
+[  4] 11.0-12.0 sec  4.82 MBytes  40.5 Mbits/sec
+[  4] 12.0-13.0 sec  5.12 MBytes  43.0 Mbits/sec
+[  4] 13.0-14.0 sec  4.59 MBytes  38.5 Mbits/sec
+[  4] 14.0-15.0 sec  5.88 MBytes  49.3 Mbits/sec
+[  4]  0.0-15.0 sec  79.9 MBytes  44.6 Mbits/sec
+[  4] Sent 56959 datagrams
+[  4] Server Report:
+[  4]  0.0-15.6 sec  37.8 MBytes  20.3 Mbits/sec   4.083 ms 29989/56960 (53%)
+#;18;UDP iperf;72.0M;192.168.0.203;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 163.33 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 41960 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.55 MBytes  46.5 Mbits/sec
+[  4]  1.0- 2.0 sec  5.47 MBytes  45.9 Mbits/sec
+[  4]  2.0- 3.0 sec  5.31 MBytes  44.6 Mbits/sec
+[  4]  3.0- 4.0 sec  5.11 MBytes  42.9 Mbits/sec
+[  4]  4.0- 5.0 sec  5.19 MBytes  43.5 Mbits/sec
+[  4]  5.0- 6.0 sec  5.70 MBytes  47.9 Mbits/sec
+[  4]  6.0- 7.0 sec  5.57 MBytes  46.8 Mbits/sec
+[  4]  7.0- 8.0 sec  5.86 MBytes  49.2 Mbits/sec
+[  4]  8.0- 9.0 sec  5.62 MBytes  47.1 Mbits/sec
+[  4]  9.0-10.0 sec  5.60 MBytes  47.0 Mbits/sec
+[  4] 10.0-11.0 sec  6.01 MBytes  50.4 Mbits/sec
+[  4] 11.0-12.0 sec  5.57 MBytes  46.7 Mbits/sec
+[  4] 12.0-13.0 sec  5.77 MBytes  48.4 Mbits/sec
+[  4] 13.0-14.0 sec  5.11 MBytes  42.9 Mbits/sec
+[  4] 14.0-15.0 sec  5.60 MBytes  47.0 Mbits/sec
+[  4]  0.0-15.0 sec  83.0 MBytes  46.4 Mbits/sec
+[  4] Sent 59240 datagrams
+[  4] Server Report:
+[  4]  0.0-15.9 sec  27.3 MBytes  14.4 Mbits/sec   1.395 ms 39740/59241 (67%)
+#;19;UDP iperf;144.0M;192.168.0.201;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 43314 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  3.82 MBytes  32.0 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.69 MBytes  30.9 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.89 MBytes  32.6 Mbits/sec
+[ 10]  3.0- 4.0 sec  3.79 MBytes  31.8 Mbits/sec
+[ 10]  4.0- 5.0 sec  4.52 MBytes  37.9 Mbits/sec
+[ 10]  5.0- 6.0 sec  4.23 MBytes  35.5 Mbits/sec
+[ 10]  6.0- 7.0 sec  3.86 MBytes  32.3 Mbits/sec
+[ 10]  7.0- 8.0 sec  4.09 MBytes  34.3 Mbits/sec
+[ 10]  8.0- 9.0 sec  3.97 MBytes  33.3 Mbits/sec
+[ 10]  9.0-10.0 sec  3.68 MBytes  30.9 Mbits/sec
+[ 10] 10.0-11.0 sec  4.40 MBytes  36.9 Mbits/sec
+[ 10] 11.0-12.0 sec  4.38 MBytes  36.8 Mbits/sec
+[ 10] 12.0-13.0 sec  3.45 MBytes  28.9 Mbits/sec
+[ 10] 13.0-14.0 sec  3.85 MBytes  32.3 Mbits/sec
+[ 10] 14.0-15.0 sec  3.83 MBytes  32.2 Mbits/sec
+[ 10]  0.0-15.0 sec  59.4 MBytes  33.2 Mbits/sec
+[ 10] Sent 42405 datagrams
+[ 10] Server Report:
+[ 10]  0.0-16.0 sec  19.5 MBytes  10.3 Mbits/sec   3.324 ms 28476/42405 (67%)
+#;20;UDP iperf;144.0M;192.168.0.201;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[ 10] local 192.168.0.201 port 49369 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[ 10]  0.0- 1.0 sec  3.38 MBytes  28.3 Mbits/sec
+[ 10]  1.0- 2.0 sec  3.59 MBytes  30.1 Mbits/sec
+[ 10]  2.0- 3.0 sec  3.16 MBytes  26.5 Mbits/sec
+[ 10]  3.0- 4.0 sec  2.87 MBytes  24.1 Mbits/sec
+[ 10]  4.0- 5.0 sec  3.39 MBytes  28.4 Mbits/sec
+[ 10]  5.0- 6.0 sec  2.70 MBytes  22.6 Mbits/sec
+[ 10]  6.0- 7.0 sec  2.76 MBytes  23.1 Mbits/sec
+[ 10]  7.0- 8.0 sec  2.59 MBytes  21.8 Mbits/sec
+[ 10]  8.0- 9.0 sec  2.73 MBytes  22.9 Mbits/sec
+[ 10]  9.0-10.0 sec  2.45 MBytes  20.5 Mbits/sec
+[ 10] 10.0-11.0 sec  3.02 MBytes  25.3 Mbits/sec
+[ 10] 11.0-12.0 sec  2.77 MBytes  23.3 Mbits/sec
+[ 10] 12.0-13.0 sec  2.87 MBytes  24.1 Mbits/sec
+[ 10] 13.0-14.0 sec  3.10 MBytes  26.0 Mbits/sec
+[ 10] 14.0-15.0 sec  2.40 MBytes  20.1 Mbits/sec
+[ 10]  0.0-15.0 sec  43.8 MBytes  24.5 Mbits/sec
+[ 10] Sent 31229 datagrams
+[ 10] Server Report:
+[ 10]  0.0-15.3 sec  39.3 MBytes  21.6 Mbits/sec   1.018 ms 3188/31229 (10%)
+#;21;UDP iperf;144.0M;192.168.0.202;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 51669 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.06 MBytes  42.4 Mbits/sec
+[  4]  1.0- 2.0 sec  5.06 MBytes  42.4 Mbits/sec
+[  4]  2.0- 3.0 sec  5.23 MBytes  43.9 Mbits/sec
+[  4]  3.0- 4.0 sec  5.27 MBytes  44.2 Mbits/sec
+[  4]  4.0- 5.0 sec  5.70 MBytes  47.8 Mbits/sec
+[  4]  5.0- 6.0 sec  5.60 MBytes  47.0 Mbits/sec
+[  4]  6.0- 7.0 sec  4.27 MBytes  35.8 Mbits/sec
+[  4]  7.0- 8.0 sec  5.56 MBytes  46.6 Mbits/sec
+[  4]  8.0- 9.0 sec  5.15 MBytes  43.2 Mbits/sec
+[  4]  9.0-10.0 sec  4.85 MBytes  40.7 Mbits/sec
+[  4] 10.0-11.0 sec  5.37 MBytes  45.1 Mbits/sec
+[  4] 11.0-12.0 sec  4.50 MBytes  37.7 Mbits/sec
+[  4] 12.0-13.0 sec  5.09 MBytes  42.7 Mbits/sec
+[  4] 13.0-14.0 sec  5.07 MBytes  42.5 Mbits/sec
+[  4] 14.0-15.0 sec  5.30 MBytes  44.4 Mbits/sec
+[  4]  0.0-15.0 sec  77.1 MBytes  43.1 Mbits/sec
+[  4] Sent 54976 datagrams
+[  4] Server Report:
+[  4]  0.0-15.6 sec  31.2 MBytes  16.8 Mbits/sec   3.322 ms 32752/54977 (60%)
+#;22;UDP iperf;144.0M;192.168.0.202;192.168.0.203;15
+------------------------------------------------------------
+Client connecting to 192.168.0.203, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.202 port 58497 connected with 192.168.0.203 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.28 MBytes  44.3 Mbits/sec
+[  4]  1.0- 2.0 sec  4.55 MBytes  38.1 Mbits/sec
+[  4]  2.0- 3.0 sec  4.58 MBytes  38.5 Mbits/sec
+[  4]  3.0- 4.0 sec  5.07 MBytes  42.5 Mbits/sec
+[  4]  4.0- 5.0 sec  4.61 MBytes  38.7 Mbits/sec
+[  4]  5.0- 6.0 sec  4.85 MBytes  40.7 Mbits/sec
+[  4]  6.0- 7.0 sec  5.86 MBytes  49.1 Mbits/sec
+[  4]  7.0- 8.0 sec  5.96 MBytes  50.0 Mbits/sec
+[  4]  8.0- 9.0 sec  5.69 MBytes  47.7 Mbits/sec
+[  4]  9.0-10.0 sec  4.79 MBytes  40.2 Mbits/sec
+[  4] 10.0-11.0 sec  4.73 MBytes  39.7 Mbits/sec
+[  4] 11.0-12.0 sec  5.45 MBytes  45.7 Mbits/sec
+[  4] 12.0-13.0 sec  4.94 MBytes  41.5 Mbits/sec
+[  4] 13.0-14.0 sec  4.06 MBytes  34.0 Mbits/sec
+[  4] 14.0-15.0 sec  5.42 MBytes  45.5 Mbits/sec
+[  4]  0.0-15.0 sec  75.8 MBytes  42.4 Mbits/sec
+[  4] Sent 54096 datagrams
+[  4] Server Report:
+[  4]  0.0-15.4 sec  40.4 MBytes  21.9 Mbits/sec   2.969 ms 25308/54097 (47%)
+#;23;UDP iperf;144.0M;192.168.0.203;192.168.0.201;15
+------------------------------------------------------------
+Client connecting to 192.168.0.201, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 52539 connected with 192.168.0.201 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.34 MBytes  44.8 Mbits/sec
+[  4]  1.0- 2.0 sec  3.93 MBytes  33.0 Mbits/sec
+[  4]  2.0- 3.0 sec  5.06 MBytes  42.4 Mbits/sec
+[  4]  3.0- 4.0 sec  4.84 MBytes  40.6 Mbits/sec
+[  4]  4.0- 5.0 sec  5.21 MBytes  43.7 Mbits/sec
+[  4]  5.0- 6.0 sec  4.98 MBytes  41.7 Mbits/sec
+[  4]  6.0- 7.0 sec  4.40 MBytes  36.9 Mbits/sec
+[  4]  7.0- 8.0 sec  5.46 MBytes  45.8 Mbits/sec
+[  4]  8.0- 9.0 sec  5.48 MBytes  45.9 Mbits/sec
+[  4]  9.0-10.0 sec  4.54 MBytes  38.1 Mbits/sec
+[  4] 10.0-11.0 sec  4.78 MBytes  40.1 Mbits/sec
+[  4] 11.0-12.0 sec  4.62 MBytes  38.8 Mbits/sec
+[  4] 12.0-13.0 sec  5.13 MBytes  43.0 Mbits/sec
+[  4] 13.0-14.0 sec  4.43 MBytes  37.1 Mbits/sec
+[  4] 14.0-15.0 sec  5.61 MBytes  47.1 Mbits/sec
+[  4]  0.0-15.0 sec  73.8 MBytes  41.3 Mbits/sec
+[  4] Sent 52640 datagrams
+[  4] Server Report:
+[  4]  0.0-15.5 sec  38.0 MBytes  20.5 Mbits/sec   4.728 ms 25559/52641 (49%)
+#;24;UDP iperf;144.0M;192.168.0.203;192.168.0.202;15
+------------------------------------------------------------
+Client connecting to 192.168.0.202, UDP port 5001
+Sending 1470 byte datagrams, IPG target: 81.67 us (kalman adjust)
+UDP buffer size: 0.16 MByte (default)
+------------------------------------------------------------
+[  4] local 192.168.0.203 port 40390 connected with 192.168.0.202 port 5001
+[ ID] Interval       Transfer     Bandwidth
+[  4]  0.0- 1.0 sec  5.51 MBytes  46.2 Mbits/sec
+[  4]  1.0- 2.0 sec  5.02 MBytes  42.1 Mbits/sec
+[  4]  2.0- 3.0 sec  5.39 MBytes  45.2 Mbits/sec
+[  4]  3.0- 4.0 sec  5.55 MBytes  46.6 Mbits/sec
+[  4]  4.0- 5.0 sec  5.57 MBytes  46.8 Mbits/sec
+[  4]  5.0- 6.0 sec  6.01 MBytes  50.4 Mbits/sec
+[  4]  6.0- 7.0 sec  5.23 MBytes  43.9 Mbits/sec
+[  4]  7.0- 8.0 sec  5.46 MBytes  45.8 Mbits/sec
+[  4]  8.0- 9.0 sec  5.82 MBytes  48.8 Mbits/sec
+[  4]  9.0-10.0 sec  5.93 MBytes  49.7 Mbits/sec
+[  4] 10.0-11.0 sec  5.65 MBytes  47.4 Mbits/sec
+[  4] 11.0-12.0 sec  5.84 MBytes  49.0 Mbits/sec
+[  4] 12.0-13.0 sec  5.54 MBytes  46.5 Mbits/sec
+[  4] 13.0-14.0 sec  5.88 MBytes  49.3 Mbits/sec
+[  4] 14.0-15.0 sec  5.90 MBytes  49.5 Mbits/sec
+[  4]  0.0-15.0 sec  84.3 MBytes  47.1 Mbits/sec
+[  4] Sent 60126 datagrams
+[  4] Server Report:
+[  4]  0.0-15.8 sec  21.0 MBytes  11.1 Mbits/sec   3.078 ms 45138/60127 (75%)
