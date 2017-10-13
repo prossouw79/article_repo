@@ -1,5 +1,4 @@
 #!/bin/bash
-#Compare Different benchmarks over wifi and ethernet
 target_dir="article_results"
 mkdir $target_dir -p
 
@@ -7,9 +6,8 @@ mkdir $target_dir -p
 suffix="atlantis"
 distance="CLOSE"
 adapter="RPI" #CISCO/RPI
-router="TRENDNET"
-#test_time=30 #time to run test in seconds
-test_time=${1:-10}
+router="TRENDNET" #RPI/TRENDNET/ASUS
+test_time=${1:-10} #time to run test in seconds, default 10
 echo "Test time set to " $test_time " seconds"
 
 outfile=$target_dir"/"$distance"_"$adapter"_"$router"_"$suffix".txt"
@@ -25,28 +23,27 @@ if [ "$adapter" = "CISCO" ]
 then
 	machinefile="nodes_cisco"
 	echo "TURNING OFF BCM ADAPTERS FOR CISCO NIC TEST"
-	mpirun -f $machinefile sh netSwitch/BCM_off.sh
-	mpirun -f $machinefile sh netSwitch/CISCO_on.sh
+	mpirun -f $machinefile sh ~/netSwitch/BCM_off.sh
+	mpirun -f $machinefile sh ~/netSwitch/CISCO_on.sh
 fi
 
 if [ "$adapter" = "RPI" ]
 then
 	machinefile="nodes_wifi"
 	echo "TURNING OFF CISCO ADAPTERS FOR BCM NIC TEST"
-	mpirun -f $machinefile sh netSwitch/CISCO_off.sh
-	mpirun -f $machinefile sh netSwitch/BCM_on.sh
+	mpirun -f $machinefile sh ~/netSwitch/CISCO_off.sh
+	mpirun -f $machinefile sh ~/netSwitch/BCM_on.sh
 fi
 
+#kill any existing iperf3 servers
+echo "Killing running iperf3 servers"
+mpirun -f $machinefile pkill iperf3
+sleep 1
 
-	#kill any existing iperf3 servers
-	echo "Killing running iperf3 servers"
-	mpirun -f $machinefile pkill iperf3
-	sleep 1
-
-	#start iperf3 servers in TCP mode
-	echo "Starting new TCP iperf3 servers"
-	mpirun -f $machinefile $server_start &
-	sleep 1
+#start iperf3 servers in TCP mode
+echo "Starting new TCP iperf3 servers"
+mpirun -f $machinefile $server_start &
+sleep 1
 
 echo "Waiting 5 seconds for network..."
 #sleep 5
