@@ -65,7 +65,7 @@ namespace iperf_parser
                 bool header_trigger = (cur_line.Contains("TCP iperf3") || cur_line.Contains("UDP iperf3") || cur_line.Contains("fping latency"));
                 bool fping_trigger_data = containsAllElements(cur_line, new string[] {"bytes","ms","avg","loss" });
                 bool tcp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "MBytes", "Mbits/sec", "sender" });
-                bool udp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "MBytes", "Mbits/sec", "ms" });
+                bool udp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "Bytes", "Mbits/sec", "ms" });
 
 
 
@@ -94,7 +94,7 @@ namespace iperf_parser
 
                 if (udp_trigger_data)
                 {
-					//Console.WriteLine("UDP DATA LINE:" + cur_line + "->" + getFilteredLine(cur_line, "0123456789. "));
+					Console.WriteLine("UDP DATA LINE:" + cur_line + "->" + getFilteredLine(cur_line, "0123456789. "));
 					string filtered = getFilteredLine(cur_line, "0123456789. ");
 					string[] parts = filtered.Split(';');
 
