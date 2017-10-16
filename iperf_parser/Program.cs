@@ -40,7 +40,7 @@ namespace iperf_parser
 				
 			string jobname = Path.GetFileNameWithoutExtension (inPath);
 
-			if (jobname.Split ('_').Count() == 3) {
+			if (jobname.Split ('_').Count() >=3) {
 				string[] parts = jobname.Split ('_');
 
 				distance = parts [0];
@@ -143,13 +143,14 @@ namespace iperf_parser
                     string[] parts = dataline.Split(';');
                     linpack_time = DParse(parts[5]);
                     linpack_MFlops = DParse(parts[6])*1000;//convert to Mflops immediately
-                    Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_MFlops.ToString("F4"));
+                    //Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_MFlops.ToString("F4"));
                 }
 			}
             lst_experiments.Add(tmp_ex);//add the last experiment
 
 
-            string header = "ID;SNDER;RCVER;AVG_BW;AVG_LT;TCP_RTR;UDP_TRT;AVG_JTR;AVG_PLSS";
+            string header = distance + ";" + adapter + ";" + router + ";"; 
+            header += Environment.NewLine + "ID;SNDER;RCVER;AVG_BW;AVG_LT;TCP_RTR;UDP_TRT;AVG_JTR;AVG_PLSS";
             string csv = header + Environment.NewLine;
             foreach(experiment ex in lst_experiments)
             {
