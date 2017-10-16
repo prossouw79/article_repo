@@ -7,11 +7,11 @@ linpack_exec="${PWD}/xhpl"
 linpack_data="${PWD}/HPL.dat"
 
 #Physical setup
-suffix="atlantis"
+test_time=${1:-10} #time to run test in seconds, default 10
+suffix=${2:-"nosuffix"}
 distance="CLOSE"
 adapter="RPI" #CISCO/RPI
 router="TRENDNET" #RPI/TRENDNET/ASUS
-test_time=${1:-10} #time to run test in seconds, default 10
 echo "Test time set to " $test_time " seconds"
 
 outfile=$target_dir"/"$distance"_"$adapter"_"$router"_"$suffix".txt"
@@ -89,7 +89,7 @@ for wifi_ip_1 in $wifi_lines
 
 	echo "###############################################################" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
-	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data | tee -a $outfile
+	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data >> $outfile
 
 cat $outfile
 

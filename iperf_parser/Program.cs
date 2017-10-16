@@ -14,7 +14,9 @@ namespace iperf_parser
 			string inPath = "";
 			
 			string adapter, router, distance;
-			adapter = router = distance = "-";		
+			adapter = router = distance = "-";
+            double linpack_time = 0;
+			double linpack_GFlops = 0;
 
 			List<string> lines_raw = new List<string> ();
 			if (!args.Any ()) 
@@ -46,28 +48,29 @@ namespace iperf_parser
 				router = parts [2];
 			}
 
-			List<string> lines_filtered = new List<string> ();
-
+			//List<string> lines_raw = new List<string> ();
+			/*
 			foreach (string l in lines_raw) {
 				//filter lines of interest
 				if (l.StartsWith ("#") || l.StartsWith ("[") || l.Contains("avg"))
 					lines_filtered.Add (l);
-			}
+			}*/
 
-            List<experiment> lst_experiments = new List<experiment>();
+			List<experiment> lst_experiments = new List<experiment>();
             experiment tmp_ex = new experiment(-1);
 
 			//new method
-			for (int k = 0; k < lines_filtered.Count; k++) {
+            for (int k = 0; k < lines_raw.Count; k++) {
 				
-				string cur_line = lines_filtered [k];
+				string cur_line = lines_raw [k];
 				
+                //Console.WriteLine("\t\t" + cur_line);
+
                 bool header_trigger = (cur_line.Contains("TCP iperf3") || cur_line.Contains("UDP iperf3") || cur_line.Contains("fping latency"));
                 bool fping_trigger_data = containsAllElements(cur_line, new string[] {"bytes","ms","avg","loss" });
                 bool tcp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "MBytes", "Mbits/sec", "sender" });
                 bool udp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "Bytes", "Mbits/sec", "ms" });
-
-
+                bool linpack_trigger = containsAllElements(cur_line, new string[] { "T/V","N","NB","P","Q","Time","Gflops" });
 
                 if (fping_trigger_data)
                 {
@@ -94,7 +97,7 @@ namespace iperf_parser
 
                 if (udp_trigger_data)
                 {
-					Console.WriteLine("UDP DATA LINE:" + cur_line + "->" + getFilteredLine(cur_line, "0123456789. "));
+					//Console.WriteLine("UDP DATA LINE:" + cur_line + "->" + getFilteredLine(cur_line, "0123456789. "));
 					string filtered = getFilteredLine(cur_line, "0123456789. ");
 					string[] parts = filtered.Split(';');
 
@@ -110,7 +113,7 @@ namespace iperf_parser
 
                 if (header_trigger)
                 {
-                    string[] parts = lines_filtered[k].Split(';');
+                    string[] parts = lines_raw[k].Split(';');
                     int _id = int.Parse(parts[1]);
                     string _from = parts[3];
                     string _to = parts[4];
@@ -131,6 +134,16 @@ namespace iperf_parser
                     {
                         tmp_ex = new experiment(_id); //instantiate experiment
                     }
+                }
+
+                if(linpack_trigger)
+                {
+                    string dataline = getFilteredLine(lines_raw[k + 2],"0123456789. e-");
+                    //Console.WriteLine(dataline);//6,7
+                    string[] parts = dataline.Split(';');
+                    linpack_time = DParse(parts[5]);
+                    linpack_GFlops = DParse(parts[6]);
+                    Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_GFlops.ToString("F4"));
                 }
 			}
             lst_experiments.Add(tmp_ex);//add the last experiment
@@ -161,7 +174,12 @@ namespace iperf_parser
 			csv = csv.Replace ("192.168.0.202", "RP2");
 			csv = csv.Replace ("192.168.0.103", "RP3");
 			csv = csv.Replace ("192.168.0.203", "RP3");
-			Console.WriteLine (csv.Replace (";", "\t"));
+
+            csv += Environment.NewLine + "-;-;-;-;-;-;-;-;-;";
+            csv += Environment.NewLine + "Linpack (GFlops);" + linpack_GFlops;
+			csv += Environment.NewLine + "Time (s)\t;" + linpack_time;
+
+			Console.WriteLine(csv.Replace(";", "\t"));
 
 			File.WriteAllText (jobname + ".csv", csv);
             Console.WriteLine("Written to: " + jobname + ".csv");
@@ -231,7 +249,6 @@ namespace iperf_parser
 
         //fping vars
         public double fping_latency;
-
 
         public experiment(int _id)
         {
