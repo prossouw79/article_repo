@@ -1,0 +1,6 @@
+
+iperf_parser/bin/Debug/
+
+*.userprefs
+
+iperf_parser/obj/x86/Debug/
