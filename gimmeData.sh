@@ -3,8 +3,8 @@ target_dir="article_results"
 mkdir $target_dir -p
 
 #linpack details
-linpack_exec="~/article_repo/mpi_benchmarks/linpack/xhpl"
-linpack_data="~/article_repo/mpi_benchmarks/linpack/HPL.dat"
+linpack_exec="xhpl"
+linpack_data="HPL.dat"
 
 #Physical setup
 suffix="atlantis"
@@ -86,9 +86,10 @@ for wifi_ip_1 in $wifi_lines
 					fi
 		done
 	done
+
 	echo "#HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL_HPL#" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
-	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data | tee -a $outfile
+	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data
 
 cat $outfile
 
