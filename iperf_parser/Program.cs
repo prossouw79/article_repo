@@ -16,7 +16,7 @@ namespace iperf_parser
 			string adapter, router, distance;
 			adapter = router = distance = "-";
             double linpack_time = 0;
-			double linpack_GFlops = 0;
+			double linpack_MFlops = 0;
 
 			List<string> lines_raw = new List<string> ();
 			if (!args.Any ()) 
@@ -142,8 +142,8 @@ namespace iperf_parser
                     //Console.WriteLine(dataline);//6,7
                     string[] parts = dataline.Split(';');
                     linpack_time = DParse(parts[5]);
-                    linpack_GFlops = DParse(parts[6]);
-                    Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_GFlops.ToString("F4"));
+                    linpack_MFlops = DParse(parts[6])*1000;//convert to Mflops immediately
+                    Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_MFlops.ToString("F4"));
                 }
 			}
             lst_experiments.Add(tmp_ex);//add the last experiment
@@ -176,7 +176,7 @@ namespace iperf_parser
 			csv = csv.Replace ("192.168.0.203", "RP3");
 
             csv += Environment.NewLine + "-;-;-;-;-;-;-;-;-;";
-            csv += Environment.NewLine + "Linpack (GFlops);" + linpack_GFlops;
+            csv += Environment.NewLine + "Linpack (MFlops);" + linpack_MFlops;
 			csv += Environment.NewLine + "Time (s)\t;" + linpack_time;
 
 			Console.WriteLine(csv.Replace(";", "\t"));
