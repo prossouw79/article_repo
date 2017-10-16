@@ -24,28 +24,28 @@ if [ "$adapter" = "CISCO" ]
 then
 	machinefile="nodes_cisco"
 	echo "TURNING OFF BCM ADAPTERS FOR CISCO NIC TEST"
-	mpirun --machinefile  $machinefile sh ~/netSwitch/BCM_off.sh
-	mpirun --machinefile  $machinefile sh ~/netSwitch/CISCO_on.sh
-	#mpirun --machinefile  $machinefile sh ~/article_repo/helper_scripts/replace_hosts_cisco.sh
+	mpirun --machinefile -N 1  $machinefile sh ~/netSwitch/BCM_off.sh
+	mpirun --machinefile -N 1  $machinefile sh ~/netSwitch/CISCO_on.sh
+	#mpirun --machinefile -N 1  $machinefile sh ~/article_repo/helper_scripts/replace_hosts_cisco.sh
 fi
 
 if [ "$adapter" = "RPI" ]
 then
 	machinefile="nodes_wifi"
 	echo "TURNING OFF CISCO ADAPTERS FOR BCM NIC TEST"
-	mpirun --machinefile $machinefile sh ~/netSwitch/CISCO_off.sh
-	mpirun --machinefile  $machinefile sh ~/netSwitch/BCM_on.sh
-	#mpirun --machinefile  $machinefile sh ~/article_repo/helper_scripts/replace_hosts_bcm.sh
+	mpirun --machinefile -N 1 $machinefile sh ~/netSwitch/CISCO_off.sh
+	mpirun --machinefile -N 1  $machinefile sh ~/netSwitch/BCM_on.sh
+	#mpirun --machinefile -N 1  $machinefile sh ~/article_repo/helper_scripts/replace_hosts_bcm.sh
 fi
 
 #kill any existing iperf3 servers
 echo "Killing running iperf3 servers"
-mpirun --machinefile  $machinefile pkill iperf3
+mpirun --machinefile -N 1  $machinefile pkill iperf3
 sleep 1
 
 #start iperf3 servers in TCP mode
 echo "Starting new TCP iperf3 servers"
-mpirun --machinefile  $machinefile $server_start &
+mpirun --machinefile -N 1  $machinefile $server_start &
 sleep 1
 
 echo "Waiting 5 seconds for network..."
