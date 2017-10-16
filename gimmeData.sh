@@ -1,10 +1,10 @@
 #!/bin/bash
-target_dir="article_results"
+target_dir="${PWD}/article_results"
 mkdir $target_dir -p
 
 #linpack details
-linpack_exec="xhpl"
-linpack_data="HPL.dat"
+linpack_exec="${PWD}/xhpl"
+linpack_data="${PWD}/HPL.dat"
 
 #Physical setup
 suffix="atlantis"
@@ -26,7 +26,7 @@ server_start="iperf3 -s"
 echo "Configuring NICs"
 if [ "$adapter" = "CISCO" ]
 then
-	machinefile="nodes_cisco"
+	machinefile="${PWD}/nodes_cisco"
 	echo "TURNING OFF BCM ADAPTERS FOR CISCO NIC TEST"
 	mpirun -f $machinefile sh ~/netSwitch/BCM_off.sh
 	mpirun -f $machinefile sh ~/netSwitch/CISCO_on.sh
@@ -35,7 +35,7 @@ fi
 
 if [ "$adapter" = "RPI" ]
 then
-	machinefile="nodes_wifi"
+	machinefile="${PWD}/nodes_wifi"
 	echo "TURNING OFF CISCO ADAPTERS FOR BCM NIC TEST"
 	mpirun -f $machinefile sh ~/netSwitch/CISCO_off.sh
 	mpirun -f $machinefile sh ~/netSwitch/BCM_on.sh
