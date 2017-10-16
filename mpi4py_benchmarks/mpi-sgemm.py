@@ -1,12 +1,11 @@
-#!/usr/bin/env python
+#!/usr/bin/env python 
 
 """
-Credit to: https://github.com/jbornschein/bag-of-benchmarks
 
 Implementation of a MPI parallel A*B=C matrix-matrix multiplication.
 
-Each rank locally stores a tile of the matrices A, B and C; Communication
-is overlayed with computation.
+Each rank locally stores a tile of the matrices A, B and C; Communication 
+is overlayed with computation. 
 
 """
 
@@ -15,7 +14,7 @@ from __future__ import division
 import sys
 sys.path.insert(0, "../pylib")
 
-import numpy as np
+import numpy as np 
 from mpi4py import MPI
 from time import time
 
@@ -23,8 +22,8 @@ from parutils import pprint
 
 #=============================================================================#
 
-my_N = 100
-my_M = 100
+my_N = 1000
+my_M = 1000
 
 #=============================================================================#
 
@@ -51,8 +50,8 @@ if __name__ == "__main__":
     # Create a 2d cartesian grid with periodic boundary conditions
     ccomm = comm.Create_cart( (mpi_rows, mpi_cols), periods=(True, True), reorder=True)
 
-    my_mpi_row, my_mpi_col = ccomm.Get_coords( ccomm.rank )
-
+    my_mpi_row, my_mpi_col = ccomm.Get_coords( ccomm.rank ) 
+    
     # Identifiy our neighbours on the grid
     neigh = [0,0,0,0]
     neigh[NORTH], neigh[SOUTH] = ccomm.Shift(0, 1)
@@ -92,7 +91,7 @@ if __name__ == "__main__":
 
     t_total = time()-t0
     comm.barrier()
-
+        
     t_serial = 0.
     if comm.rank == 0:
         t0 = time()
@@ -104,6 +103,12 @@ if __name__ == "__main__":
     pprint("Computed (serial) %d x %d x %d in  %6.2f seconds" % (my_M, my_M, my_N, t_serial))
     pprint(" ... expecting parallel computation to take %6.2f seconds" % (mpi_rows*mpi_rows*mpi_cols*t_serial / comm.size))
     pprint("Computed (parallel) %d x %d x %d in        %6.2f seconds" % (mpi_rows*my_M, mpi_rows*my_M, mpi_cols*my_N, t_total))
-
+    
 
     comm.barrier()
+    
+
+
+
+
+
