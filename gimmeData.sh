@@ -92,12 +92,13 @@ for wifi_ip_1 in $wifi_lines
 
 	echo "###############################################################" >> $outfile
 	echo "Running OSU COLLECTIVE TEST..."
-	for i in osu_alltoall osu_barrier; do
-		echo "# $i" >> $outfile
-		mpirun -f $machinefile $i -f >> $outfile #-f prints more info
-	done
+	#for i in osu_alltoall osu_barrier; do
+	#	echo "# $i" >> $outfile
+		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 2:1024 -f | tee -a$outfile #-f prints more info
+		mpirun -f $machinefile osu_barrier -f | tee -a $outfile #-f prints more info
+	#done
 
-cat $outfile
+#cat $outfile
 
 #compile parser & run on dataset
 cd iperf_parser
