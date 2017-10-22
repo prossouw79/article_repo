@@ -63,6 +63,7 @@ wifi_lines=`cat $machinefile`
 
 for wifi_ip_1 in $wifi_lines
 	do
+		break
 		for wifi_ip_2 in $wifi_lines
 		 do
 					if [ "$wifi_ip_1" != "$wifi_ip_2" ]
@@ -98,15 +99,12 @@ for wifi_ip_1 in $wifi_lines
 	linpack_exec="${PWD}/xhpl"
 	linpack_data="${PWD}/HPL_"$num_nodes".dat"
 
-	if [[ ! -f $linpack_data ]] ; then
-    echo "Expected Linpack Data File " $linpack_data ". It was not found, aborting test."
-    exit
-	fi
+	cp $linpack_data ${PWD}/HPL.dat
 
 	echo "###############################################################" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
 	echo "Using file: "$linpack_data
-	mpirun -f $machinefile -n $total_cores $linpack_exec $linpack_data | tee -a $outfile
+	mpirun -f $machinefile -n $total_cores $linpack_exec | tee -a $outfile
 
 	echo "###############################################################" >> $outfile
 	echo "Running OSU COLLECTIVE TESTS..."
