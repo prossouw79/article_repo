@@ -81,7 +81,6 @@ for wifi_ip_1 in $wifi_lines
 						echo "Running UDP BANDWIDTH TEST"
 						echo "#;"$COUNTER";UDP iperf3;"$wifi_ip_1";"$wifi_ip_2";"$test_time >> $outfile
 						mpirun -hosts "$wifi_ip_1" iperf3 -c $wifi_ip_2 $iperf_udp_args | tee -a $outfile
-
 						COUNTER=$((COUNTER + 1))
 					fi
 		done
@@ -90,6 +89,13 @@ for wifi_ip_1 in $wifi_lines
 	echo "###############################################################" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
 	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data >> $outfile
+
+	echo "###############################################################" >> $outfile
+	echo "Running OSU COLLECTIVE TEST..."
+	for i in osu_alltoall osu_barrier; do
+	echo "# $i" >> $outfile
+	mpirun -f $machinefile $i -f >> $outfile #-f prints more info
+done
 
 cat $outfile
 
