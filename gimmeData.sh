@@ -98,8 +98,14 @@ for wifi_ip_1 in $wifi_lines
 	linpack_exec="${PWD}/xhpl"
 	linpack_data="${PWD}/HPL_"$num_nodes".dat"
 
+	if [[ ! -f $linpack_data ]] ; then
+    echo "Expected Linpack Data File " $linpack_data ". It was not found, aborting test."
+    exit
+	fi
+
 	echo "###############################################################" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
+	echo "Using file: "$linpack_data
 	mpirun -f $machinefile -n $total_cores $linpack_exec $linpack_data | tee -a $outfile
 
 	echo "###############################################################" >> $outfile
@@ -107,7 +113,7 @@ for wifi_ip_1 in $wifi_lines
 	#for i in osu_alltoall osu_barrier; do
 	#	echo "# $i" >> $outfile
 		mpirun -f $machinefile osu_barrier -f | tee -a $outfile #-f prints more info
-		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 1024:524288 -f | tee -a $outfile #-f prints more info
+		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 1024:262144 -f | tee -a $outfile #-f prints more info
 
 	#done
 
