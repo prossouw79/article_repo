@@ -93,9 +93,9 @@ for wifi_ip_1 in $wifi_lines
 	echo "###############################################################" >> $outfile
 	echo "Running OSU COLLECTIVE TEST..."
 	for i in osu_alltoall osu_barrier; do
-	echo "# $i" >> $outfile
-	mpirun -f $machinefile $i -f >> $outfile #-f prints more info
-done
+		echo "# $i" >> $outfile
+		mpirun -f $machinefile $i -f >> $outfile #-f prints more info
+	done
 
 cat $outfile
 
