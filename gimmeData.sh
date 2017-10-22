@@ -2,10 +2,6 @@
 target_dir="article_results"
 mkdir $target_dir -p
 
-#linpack details
-linpack_exec="${PWD}/xhpl"
-linpack_data="${PWD}/HPL.dat"
-
 #Physical setup
 test_time=${1:-10} #time to run test in seconds, default 10
 suffix=${2:-"nosuffix"}
@@ -42,6 +38,8 @@ then
 	#mpirun -f $machinefile sh ~/article_repo/helper_scripts/replace_hosts_bcm.sh
 fi
 
+
+
 #kill any existing iperf3 servers
 echo "Killing running iperf3 servers"
 mpirun -f $machinefile pkill iperf3
@@ -62,6 +60,7 @@ rm $outfile
 
 COUNTER=1
 wifi_lines=`cat $machinefile`
+
 for wifi_ip_1 in $wifi_lines
 	do
 		for wifi_ip_2 in $wifi_lines
@@ -86,16 +85,30 @@ for wifi_ip_1 in $wifi_lines
 		done
 	done
 
+	#calculate number of nodes
+	cores_per_node=4
+	num_nodes=`cat $machinefile | sed '/^\s*#/d;/^\s*$/d' | wc -l`
+	total_cores=$(( $num_nodes * $cores_per_node ))
+
+	echo "Cores per Node: " $cores_per_node
+	echo "Nodes in Cluster: " $num_nodes
+	echo "Total threads: " $total_cores
+
+	#linpack details
+	linpack_exec="${PWD}/xhpl"
+	linpack_data="${PWD}/HPL_"$num_nodes".dat"
+
 	echo "###############################################################" >> $outfile
 	echo "Running LINPACK PERFORMANCE TEST..."
-	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data >> $outfile
+	mpirun -f $machinefile -n $total_cores $linpack_exec $linpack_data | tee -a $outfile
 
 	echo "###############################################################" >> $outfile
 	echo "Running OSU COLLECTIVE TESTS..."
 	#for i in osu_alltoall osu_barrier; do
 	#	echo "# $i" >> $outfile
-		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 1024:1048576 -f | tee -a $outfile #-f prints more info
 		mpirun -f $machinefile osu_barrier -f | tee -a $outfile #-f prints more info
+		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 1024:524288 -f | tee -a $outfile #-f prints more info
+
 	#done
 
 #cat $outfile
