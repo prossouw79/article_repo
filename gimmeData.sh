@@ -70,15 +70,15 @@ for wifi_ip_1 in $wifi_lines
 					then
 					  echo $COUNTER
 						echo "###############################################################" >> $outfile
-						echo "Running FPING LATENCY TEST..."$wifi_ip_1";"$wifi_ip_2
+						echo "Running FPING LATENCY TEST...  "$wifi_ip_1";"$wifi_ip_2
 						echo "#;"$COUNTER";fping latency;"$wifi_ip_1";"$wifi_ip_2 >> $outfile
 						mpirun -hosts "$wifi_ip_1" fping -c $test_time $wifi_ip_2 | tee -a $outfile
 
-						echo "Running TCP BANDWIDTH TEST..."$wifi_ip_1";"$wifi_ip_2
+						echo "Running TCP BANDWIDTH TEST...  "$wifi_ip_1";"$wifi_ip_2
 						echo "#;"$COUNTER";TCP iperf3;"$wifi_ip_1";"$wifi_ip_2";"$test_time >> $outfile
 						mpirun -hosts "$wifi_ip_1" iperf3 -c $wifi_ip_2 $iperf_tcp_args $test_time | tee -a $outfile
 
-						echo "Running UDP BANDWIDTH TEST"$wifi_ip_1";"$wifi_ip_2
+						echo "Running UDP BANDWIDTH TEST...  "$wifi_ip_1";"$wifi_ip_2
 						echo "#;"$COUNTER";UDP iperf3;"$wifi_ip_1";"$wifi_ip_2";"$test_time >> $outfile
 						mpirun -hosts "$wifi_ip_1" iperf3 -c $wifi_ip_2 $iperf_udp_args | tee -a $outfile
 						COUNTER=$((COUNTER + 1))
@@ -91,10 +91,10 @@ for wifi_ip_1 in $wifi_lines
 	mpirun -f $machinefile -n 12 $linpack_exec $linpack_data >> $outfile
 
 	echo "###############################################################" >> $outfile
-	echo "Running OSU COLLECTIVE TEST..."
+	echo "Running OSU COLLECTIVE TESTS..."
 	#for i in osu_alltoall osu_barrier; do
 	#	echo "# $i" >> $outfile
-		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 2:1024 -f | tee -a$outfile #-f prints more info
+		mpirun -f $machinefile osu_alltoall -i 30 -x 10 -m 2:1024 -f | tee -a $outfile #-f prints more info
 		mpirun -f $machinefile osu_barrier -f | tee -a $outfile #-f prints more info
 	#done
 
