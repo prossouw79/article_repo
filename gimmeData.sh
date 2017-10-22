@@ -63,7 +63,7 @@ wifi_lines=`cat $machinefile`
 
 for wifi_ip_1 in $wifi_lines
 	do
-		break
+		#break
 		for wifi_ip_2 in $wifi_lines
 		 do
 					if [ "$wifi_ip_1" != "$wifi_ip_2" ]
