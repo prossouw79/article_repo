@@ -206,7 +206,7 @@ namespace iperf_parser
 			csv += Environment.NewLine + "######## Collective Results ########";
 
             csv += Environment.NewLine + "Linpack (MFlops);" + linpack_MFlops;
-			csv += Environment.NewLine + "Time (s)\t;" + linpack_time;
+			csv += Environment.NewLine + "Time (s);" + linpack_time;
 
 			csv += "\nOSU Barrier Avg Latency(us);" + barrier_avg.ToString("F2");
 
