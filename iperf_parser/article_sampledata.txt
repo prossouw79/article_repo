@@ -1,157 +1,169 @@
 ###############################################################
 #;1;fping latency;192.168.0.101;192.168.0.102
-192.168.0.102 : [0], 84 bytes, 5.43 ms (5.43 avg, 0% loss)
-#;1;TCP iperf3;192.168.0.101;192.168.0.102;1
+192.168.0.102 : [0], 84 bytes, 5.76 ms (5.76 avg, 0% loss)
+192.168.0.102 : [1], 84 bytes, 2.63 ms (4.19 avg, 0% loss)
+192.168.0.102 : [2], 84 bytes, 8.94 ms (5.77 avg, 0% loss)
+#;1;TCP iperf3;192.168.0.101;192.168.0.102;3
 Connecting to host 192.168.0.102, port 5201
 Reverse mode, remote host 192.168.0.102 is sending
-[ 12] local 192.168.0.101 port 47560 connected to 192.168.0.102 port 5201
+[ 12] local 192.168.0.101 port 42320 connected to 192.168.0.102 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[ 12]   0.00-1.00   sec  2.37 MBytes  19.8 Mbits/sec                  
+[ 12]   0.00-3.00   sec  6.89 MBytes  19.3 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[ 12]   0.00-1.00   sec  2.65 MBytes  22.2 Mbits/sec    0             sender
-[ 12]   0.00-1.00   sec  2.62 MBytes  21.9 Mbits/sec                  receiver
+[ 12]   0.00-3.00   sec  7.15 MBytes  20.0 Mbits/sec    1             sender
+[ 12]   0.00-3.00   sec  7.02 MBytes  19.6 Mbits/sec                  receiver
 
 iperf Done.
-#;1;UDP iperf3;192.168.0.101;192.168.0.102;1
+#;1;UDP iperf3;192.168.0.101;192.168.0.102;3
 Connecting to host 192.168.0.102, port 5201
-[ 12] local 192.168.0.101 port 47216 connected to 192.168.0.102 port 5201
+[ 12] local 192.168.0.101 port 53471 connected to 192.168.0.102 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[ 12]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[ 12]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[ 12]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  0.875 ms  0/16 (0%)  
-[ 12] Sent 16 datagrams
+[ 12]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  1.562 ms  0/47 (0%)  
+[ 12] Sent 47 datagrams
 
 iperf Done.
 ###############################################################
 #;2;fping latency;192.168.0.101;192.168.0.103
-192.168.0.103 : [0], 84 bytes, 5.76 ms (5.76 avg, 0% loss)
-#;2;TCP iperf3;192.168.0.101;192.168.0.103;1
+192.168.0.103 : [0], 84 bytes, 6.20 ms (6.20 avg, 0% loss)
+192.168.0.103 : [1], 84 bytes, 2.59 ms (4.39 avg, 0% loss)
+192.168.0.103 : [2], 84 bytes, 2.64 ms (3.81 avg, 0% loss)
+#;2;TCP iperf3;192.168.0.101;192.168.0.103;3
 Connecting to host 192.168.0.103, port 5201
 Reverse mode, remote host 192.168.0.103 is sending
-[ 12] local 192.168.0.101 port 38766 connected to 192.168.0.103 port 5201
+[ 12] local 192.168.0.101 port 45362 connected to 192.168.0.103 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[ 12]   0.00-1.00   sec  2.62 MBytes  21.9 Mbits/sec                  
+[ 12]   0.00-3.00   sec  7.44 MBytes  20.8 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[ 12]   0.00-1.00   sec  2.84 MBytes  23.8 Mbits/sec    0             sender
-[ 12]   0.00-1.00   sec  2.74 MBytes  23.0 Mbits/sec                  receiver
+[ 12]   0.00-3.00   sec  7.61 MBytes  21.3 Mbits/sec    1             sender
+[ 12]   0.00-3.00   sec  7.57 MBytes  21.2 Mbits/sec                  receiver
 
 iperf Done.
-#;2;UDP iperf3;192.168.0.101;192.168.0.103;1
+#;2;UDP iperf3;192.168.0.101;192.168.0.103;3
 Connecting to host 192.168.0.103, port 5201
-[ 12] local 192.168.0.101 port 48283 connected to 192.168.0.103 port 5201
+[ 12] local 192.168.0.101 port 35173 connected to 192.168.0.103 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[ 12]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[ 12]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[ 12]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  3.109 ms  0/16 (0%)  
-[ 12] Sent 16 datagrams
+[ 12]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  1.233 ms  0/48 (0%)  
+[ 12] Sent 48 datagrams
 
 iperf Done.
 ###############################################################
 #;3;fping latency;192.168.0.102;192.168.0.101
-192.168.0.101 : [0], 84 bytes, 1.98 ms (1.98 avg, 0% loss)
-#;3;TCP iperf3;192.168.0.102;192.168.0.101;1
+192.168.0.101 : [0], 84 bytes, 2.39 ms (2.39 avg, 0% loss)
+192.168.0.101 : [1], 84 bytes, 9.28 ms (5.83 avg, 0% loss)
+192.168.0.101 : [2], 84 bytes, 9.29 ms (6.98 avg, 0% loss)
+#;3;TCP iperf3;192.168.0.102;192.168.0.101;3
 Connecting to host 192.168.0.101, port 5201
 Reverse mode, remote host 192.168.0.101 is sending
-[  7] local 192.168.0.102 port 46498 connected to 192.168.0.101 port 5201
+[  7] local 192.168.0.102 port 37416 connected to 192.168.0.101 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[  7]   0.00-1.00   sec  2.56 MBytes  21.5 Mbits/sec                  
+[  7]   0.00-3.00   sec  8.30 MBytes  23.2 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[  7]   0.00-1.00   sec  2.86 MBytes  24.0 Mbits/sec    0             sender
-[  7]   0.00-1.00   sec  2.69 MBytes  22.5 Mbits/sec                  receiver
+[  7]   0.00-3.00   sec  8.58 MBytes  24.0 Mbits/sec    1             sender
+[  7]   0.00-3.00   sec  8.43 MBytes  23.6 Mbits/sec                  receiver
 
 iperf Done.
-#;3;UDP iperf3;192.168.0.102;192.168.0.101;1
+#;3;UDP iperf3;192.168.0.102;192.168.0.101;3
 Connecting to host 192.168.0.101, port 5201
-[  7] local 192.168.0.102 port 59776 connected to 192.168.0.101 port 5201
+[  7] local 192.168.0.102 port 58166 connected to 192.168.0.101 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  1.158 ms  0/15 (0%)  
-[  7] Sent 15 datagrams
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  1.442 ms  0/48 (0%)  
+[  7] Sent 48 datagrams
 
 iperf Done.
 ###############################################################
 #;4;fping latency;192.168.0.102;192.168.0.103
-192.168.0.103 : [0], 84 bytes, 5.91 ms (5.91 avg, 0% loss)
-#;4;TCP iperf3;192.168.0.102;192.168.0.103;1
+192.168.0.103 : [0], 84 bytes, 2.79 ms (2.79 avg, 0% loss)
+192.168.0.103 : [1], 84 bytes, 8.83 ms (5.81 avg, 0% loss)
+192.168.0.103 : [2], 84 bytes, 2.59 ms (4.73 avg, 0% loss)
+#;4;TCP iperf3;192.168.0.102;192.168.0.103;3
 Connecting to host 192.168.0.103, port 5201
 Reverse mode, remote host 192.168.0.103 is sending
-[  7] local 192.168.0.102 port 50724 connected to 192.168.0.103 port 5201
+[  7] local 192.168.0.102 port 43138 connected to 192.168.0.103 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[  7]   0.00-1.00   sec  2.64 MBytes  22.2 Mbits/sec                  
+[  7]   0.00-3.00   sec  8.05 MBytes  22.5 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[  7]   0.00-1.00   sec  2.89 MBytes  24.3 Mbits/sec    0             sender
-[  7]   0.00-1.00   sec  2.77 MBytes  23.2 Mbits/sec                  receiver
+[  7]   0.00-3.00   sec  8.34 MBytes  23.3 Mbits/sec    1             sender
+[  7]   0.00-3.00   sec  8.18 MBytes  22.9 Mbits/sec                  receiver
 
 iperf Done.
-#;4;UDP iperf3;192.168.0.102;192.168.0.103;1
+#;4;UDP iperf3;192.168.0.102;192.168.0.103;3
 Connecting to host 192.168.0.103, port 5201
-[  7] local 192.168.0.102 port 33189 connected to 192.168.0.103 port 5201
+[  7] local 192.168.0.102 port 46794 connected to 192.168.0.103 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  1.763 ms  0/16 (0%)  
-[  7] Sent 16 datagrams
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  2.578 ms  0/48 (0%)  
+[  7] Sent 48 datagrams
 
 iperf Done.
 ###############################################################
 #;5;fping latency;192.168.0.103;192.168.0.101
-192.168.0.101 : [0], 84 bytes, 4.50 ms (4.50 avg, 0% loss)
-#;5;TCP iperf3;192.168.0.103;192.168.0.101;1
+192.168.0.101 : [0], 84 bytes, 2.42 ms (2.42 avg, 0% loss)
+192.168.0.101 : [1], 84 bytes, 9.01 ms (5.71 avg, 0% loss)
+192.168.0.101 : [2], 84 bytes, 9.23 ms (6.88 avg, 0% loss)
+#;5;TCP iperf3;192.168.0.103;192.168.0.101;3
 Connecting to host 192.168.0.101, port 5201
 Reverse mode, remote host 192.168.0.101 is sending
-[  7] local 192.168.0.103 port 48874 connected to 192.168.0.101 port 5201
+[  7] local 192.168.0.103 port 32858 connected to 192.168.0.101 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[  7]   0.00-1.00   sec  2.42 MBytes  20.3 Mbits/sec                  
+[  7]   0.00-3.00   sec  7.93 MBytes  22.2 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[  7]   0.00-1.00   sec  2.61 MBytes  21.9 Mbits/sec    0             sender
-[  7]   0.00-1.00   sec  2.55 MBytes  21.4 Mbits/sec                  receiver
+[  7]   0.00-3.00   sec  8.17 MBytes  22.9 Mbits/sec    0             sender
+[  7]   0.00-3.00   sec  8.05 MBytes  22.5 Mbits/sec                  receiver
 
 iperf Done.
-#;5;UDP iperf3;192.168.0.103;192.168.0.101;1
+#;5;UDP iperf3;192.168.0.103;192.168.0.101;3
 Connecting to host 192.168.0.101, port 5201
-[  7] local 192.168.0.103 port 56589 connected to 192.168.0.101 port 5201
+[  7] local 192.168.0.103 port 33836 connected to 192.168.0.101 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  2.093 ms  0/16 (0%)  
-[  7] Sent 16 datagrams
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  15.076 ms  0/47 (0%)  
+[  7] Sent 47 datagrams
 
 iperf Done.
 ###############################################################
 #;6;fping latency;192.168.0.103;192.168.0.102
-192.168.0.102 : [0], 84 bytes, 5.34 ms (5.34 avg, 0% loss)
-#;6;TCP iperf3;192.168.0.103;192.168.0.102;1
+192.168.0.102 : [0], 84 bytes, 6.13 ms (6.13 avg, 0% loss)
+192.168.0.102 : [1], 84 bytes, 9.34 ms (7.73 avg, 0% loss)
+192.168.0.102 : [2], 84 bytes, 5.66 ms (7.04 avg, 0% loss)
+#;6;TCP iperf3;192.168.0.103;192.168.0.102;3
 Connecting to host 192.168.0.102, port 5201
 Reverse mode, remote host 192.168.0.102 is sending
-[  7] local 192.168.0.103 port 43518 connected to 192.168.0.102 port 5201
+[  7] local 192.168.0.103 port 35124 connected to 192.168.0.102 port 5201
 [ ID] Interval           Transfer     Bandwidth
-[  7]   0.00-1.00   sec  2.48 MBytes  20.8 Mbits/sec                  
+[  7]   0.00-3.00   sec  7.79 MBytes  21.8 Mbits/sec                  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Retr
-[  7]   0.00-1.00   sec  2.71 MBytes  22.7 Mbits/sec    0             sender
-[  7]   0.00-1.00   sec  2.61 MBytes  21.9 Mbits/sec                  receiver
+[  7]   0.00-3.00   sec  7.98 MBytes  22.3 Mbits/sec    1             sender
+[  7]   0.00-3.00   sec  7.91 MBytes  22.1 Mbits/sec                  receiver
 
 iperf Done.
-#;6;UDP iperf3;192.168.0.103;192.168.0.102;1
+#;6;UDP iperf3;192.168.0.103;192.168.0.102;3
 Connecting to host 192.168.0.102, port 5201
-[  7] local 192.168.0.103 port 34722 connected to 192.168.0.102 port 5201
+[  7] local 192.168.0.103 port 47503 connected to 192.168.0.102 port 5201
 [ ID] Interval           Transfer     Bandwidth       Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  16  
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  48  
 - - - - - - - - - - - - - - - - - - - - - - - - -
 [ ID] Interval           Transfer     Bandwidth       Jitter    Lost/Total Datagrams
-[  7]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  4.283 ms  0/16 (0%)  
-[  7] Sent 16 datagrams
+[  7]   0.00-3.00   sec   384 KBytes  1.05 Mbits/sec  1.438 ms  0/48 (0%)  
+[  7] Sent 48 datagrams
 
 iperf Done.
 ###############################################################
@@ -177,7 +189,7 @@ N      :     512
 NB     :     128 
 PMAP   : Row-major process mapping
 P      :       3 
-Q      :       1 
+Q      :       4 
 PFACT  :   Right 
 NBMIN  :       4 
 NDIV   :       2 
@@ -201,13 +213,13 @@ ALIGN  : 8 double precision words
 ================================================================================
 T/V                N    NB     P     Q               Time                 Gflops
 --------------------------------------------------------------------------------
-WR11C2R4         512   128     3     1              20.68              4.347e-03
-HPL_pdgesv() start time Mon Oct 16 14:53:24 2017
+WR11C2R4         512   128     3     4              23.35              3.849e-03
+HPL_pdgesv() start time Wed Nov 15 18:14:45 2017
 
-HPL_pdgesv() end time   Mon Oct 16 14:53:45 2017
+HPL_pdgesv() end time   Wed Nov 15 18:15:08 2017
 
 --------------------------------------------------------------------------------
-||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0054589 ...... PASSED
+||Ax-b||_oo/(eps*(||A||_oo*||x||_oo+||b||_oo)*N)=        0.0055055 ...... PASSED
 ================================================================================
 
 Finished      1 tests with the following results:
@@ -218,3 +230,20 @@ Finished      1 tests with the following results:
 
 End of Tests.
 ================================================================================
+###############################################################
+
+# OSU MPI Barrier Latency Test v5.3.2
+# Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+          3183.18           3179.91           3188.22         100
+
+# OSU MPI All-to-All Personalized Exchange Latency Test v5.3.2
+# Size       Avg Latency(us)   Min Latency(us)   Max Latency(us)  Iterations
+1024                 4423.14           4088.04           4709.05          30
+2048                 7721.59           7450.63           7962.18          30
+4096                10715.15          10351.47          11232.45          30
+8192                20308.80          19449.50          21074.91          30
+16384               53469.85          46514.11          61996.71          30
+32768               83518.00          79039.22          91012.20          30
+65536              145568.31         132406.07         154392.97          30
+131072             378154.85         326003.58         404945.37          30
+262144             654378.33         626010.58         683127.96          30

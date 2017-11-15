@@ -17,6 +17,8 @@ namespace iperf_parser
 			adapter = router = distance = "-";
             double linpack_time = 0;
 			double linpack_MFlops = 0;
+			double barrier_avg = 0;
+			string allToAllResults = "";
 
 			List<string> lines_raw = new List<string> ();
 			if (!args.Any ()) 
@@ -60,7 +62,8 @@ namespace iperf_parser
             experiment tmp_ex = new experiment(-1);
 
 			//new method
-            for (int k = 0; k < lines_raw.Count; k++) {
+            for (int k = 0; k < lines_raw.Count; k++) 
+			{
 				
 				string cur_line = lines_raw [k];
 				
@@ -71,6 +74,8 @@ namespace iperf_parser
                 bool tcp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "MBytes", "Mbits/sec", "sender" });
                 bool udp_trigger_data = containsAllElements(cur_line, new string[] { "sec", "Bytes", "Mbits/sec", "ms" });
                 bool linpack_trigger = containsAllElements(cur_line, new string[] { "T/V","N","NB","P","Q","Time","Gflops" });
+				bool barrier_trigger = containsAllElements(cur_line, new string[] { "OSU MPI Barrier Latency Test" });
+				bool alltoall_trigger = containsAllElements(cur_line, new string[] { "OSU MPI All-to-All Personalized Exchange Latency Test" });
 
                 if (fping_trigger_data)
                 {
@@ -145,13 +150,34 @@ namespace iperf_parser
                     linpack_MFlops = DParse(parts[6])*1000;//convert to Mflops immediately
                     //Console.WriteLine("Linpack: " + linpack_time.ToString("F2") + " : " + linpack_MFlops.ToString("F4"));
                 }
+
+				if (barrier_trigger) 
+				{
+					string dataline = getFilteredLine(lines_raw[k + 2],"0123456789. ");
+					string[] parts = dataline.Split(';');
+					barrier_avg = DParse(parts [0]);
+				}
+
+				if (alltoall_trigger) 
+				{
+					string readAhead = ";Size(b);Avg_Latency(us)\n";
+					for (int j = k+2; j < lines_raw.Count; j++) {
+						if (!lines_raw [j].StartsWith ("#") && lines_raw[j].Length > 0) {
+							string[] parts = getFilteredLine (lines_raw [j], "0123456789. ").Split (';');
+							readAhead += ";"+parts[0] + ";" + parts[1] + Environment.NewLine;
+						}
+					}
+					allToAllResults = readAhead;
+
+				}
 			}
             lst_experiments.Add(tmp_ex);//add the last experiment
 
 
             string header = distance + ";" + adapter + ";" + router + ";"; 
-            header += Environment.NewLine + "ID;SNDER;RCVER;AVG_BW;AVG_LT;TCP_RTR;UDP_TRT;AVG_JTR;AVG_PLSS";
-            string csv = header + Environment.NewLine;
+			header += Environment.NewLine + "######## Point-to-Point Results ########" + Environment.NewLine + "ID;SNDER;RCVER;AVG_BW;AVG_LT;TCP_RTR;UDP_TRT;AVG_JTR;AVG_PLSS";
+			string csv = header + Environment.NewLine ;
+
             foreach(experiment ex in lst_experiments)
             {
                 csv += ex.getCSVLine() + Environment.NewLine;
@@ -163,11 +189,12 @@ namespace iperf_parser
             List<double> values_tr = lst_experiments.Select(ex => ex.udp_tr_rate).ToList();
             List<double> values_jt = lst_experiments.Select(ex => ex.udp_jitter).ToList();
             List<double> values_pl = lst_experiments.Select(ex => ex.udp_ploss_ratio).ToList();
-            string footer = "-;-;-;-;-;-;-;-;-;";
-            footer += Environment.NewLine +  "-;-;-;" + stats.Mean(values_bw).ToString("F2") +";"+ stats.Mean(values_lt).ToString("F2") + ";" + stats.Mean(values_rt).ToString("F2") + ";" + stats.Mean(values_tr).ToString("F2") + ";" + stats.Mean(values_jt).ToString("F2") + ";" + stats.Mean(values_pl).ToString("F2")+";AVG/MEAN";
-            footer += Environment.NewLine +  "-;-;-;" + stats.StandardDeviation(values_bw).ToString("F2") + ";" + stats.StandardDeviation(values_lt).ToString("F2") + ";" + stats.StandardDeviation(values_rt).ToString("F2") + ";" + stats.StandardDeviation(values_tr).ToString("F2") + ";" + stats.StandardDeviation(values_jt).ToString("F2") + ";" + stats.StandardDeviation(values_pl).ToString("F2") + ";STANDARD DEVIATION";
-            footer += Environment.NewLine + "-;-;-;" + stats.Variance(values_bw).ToString("F2") + ";" + stats.Variance(values_lt).ToString("F2") + ";" + stats.Variance(values_rt).ToString("F2") + ";" + stats.Variance(values_tr).ToString("F2") + ";" + stats.Variance(values_jt).ToString("F2") + ";" + stats.Variance(values_pl).ToString("F2") + ";VARIANCE";
-            csv += footer;
+
+			string statsSection = "-;-;-;-;-;-;-;-;-;";
+            statsSection += Environment.NewLine +  "-;-;-;" + stats.Mean(values_bw).ToString("F2") +";"+ stats.Mean(values_lt).ToString("F2") + ";" + stats.Mean(values_rt).ToString("F2") + ";" + stats.Mean(values_tr).ToString("F2") + ";" + stats.Mean(values_jt).ToString("F2") + ";" + stats.Mean(values_pl).ToString("F2")+";AVG/MEAN";
+            statsSection += Environment.NewLine +  "-;-;-;" + stats.StandardDeviation(values_bw).ToString("F2") + ";" + stats.StandardDeviation(values_lt).ToString("F2") + ";" + stats.StandardDeviation(values_rt).ToString("F2") + ";" + stats.StandardDeviation(values_tr).ToString("F2") + ";" + stats.StandardDeviation(values_jt).ToString("F2") + ";" + stats.StandardDeviation(values_pl).ToString("F2") + ";STANDARD DEVIATION";
+            statsSection += Environment.NewLine + "-;-;-;" + stats.Variance(values_bw).ToString("F2") + ";" + stats.Variance(values_lt).ToString("F2") + ";" + stats.Variance(values_rt).ToString("F2") + ";" + stats.Variance(values_tr).ToString("F2") + ";" + stats.Variance(values_jt).ToString("F2") + ";" + stats.Variance(values_pl).ToString("F2") + ";VARIANCE";
+            csv += statsSection;
 
 			csv = csv.Replace ("192.168.0.101", "RP1");
 			csv = csv.Replace ("192.168.0.201", "RP1");
@@ -176,9 +203,15 @@ namespace iperf_parser
 			csv = csv.Replace ("192.168.0.103", "RP3");
 			csv = csv.Replace ("192.168.0.203", "RP3");
 
-            csv += Environment.NewLine + "-;-;-;-;-;-;-;-;-;";
+			csv += Environment.NewLine + "######## Collective Results ########";
+
             csv += Environment.NewLine + "Linpack (MFlops);" + linpack_MFlops;
 			csv += Environment.NewLine + "Time (s)\t;" + linpack_time;
+
+			csv += "\nOSU Barrier Avg Latency(us);" + barrier_avg.ToString("F2");
+
+			csv += "\nOSU AlltoAll Results:\n";
+			csv += allToAllResults ;
 
 			Console.WriteLine(csv.Replace(";", "\t"));
 
